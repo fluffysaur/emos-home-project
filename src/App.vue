@@ -1,85 +1,86 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <ion-app>
+    <router-view />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- Bottom navigation menu - Only show for authenticated routes -->
+    <ion-tabs v-if="authStore.isAuthenticated">
+      <template v-slot:bottom>
+        <ion-tab-bar class="pb-2">
+          <ion-tab-button tab="menu">
+            <ion-icon :icon="restaurantOutline"></ion-icon>
+            <ion-label class="text-senior">Menu</ion-label>
+          </ion-tab-button>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+          <ion-tab-button tab="orders">
+            <ion-icon :icon="listOutline"></ion-icon>
+            <ion-label class="text-senior">My Orders</ion-label>
+          </ion-tab-button>
 
-  <RouterView />
+          <ion-tab-button tab="profile">
+            <ion-icon :icon="personOutline"></ion-icon>
+            <ion-label class="text-senior">Profile</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="help">
+            <ion-icon :icon="helpCircleOutline"></ion-icon>
+            <ion-label class="text-senior">Help</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </template>
+    </ion-tabs>
+  </ion-app>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { IonApp, IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/vue'
+import { restaurantOutline, listOutline, personOutline, helpCircleOutline } from 'ionicons/icons'
+import { useAuthStore } from '@/stores/auth'
+
+const authStore = useAuthStore()
+
+onMounted(() => {
+  // Check authentication status on app startup
+  authStore.checkAuthState()
+})
+</script>
+
+<style>
+/* Global styles */
+ion-content {
+  --ion-background-color: #f9f9fb;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+/* Increase text size for better accessibility for elderly users */
+.text-senior {
+  font-size: 1.125rem; /* 18px */
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+/* Increase tap targets for better accessibility */
+ion-button {
+  --padding-top: 12px;
+  --padding-bottom: 12px;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+ion-segment-button {
+  --background-checked: #e5f2ff;
+  --color-checked: #0055a5;
+  --indicator-color: transparent;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+ion-checkbox {
+  --size: 24px;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+/* Disable iOS rubber band effect for better UX */
+html {
+  overflow: hidden;
+  height: 100%;
 }
 
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+body {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 </style>

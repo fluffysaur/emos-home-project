@@ -1,35 +1,63 @@
-@import './base.css';
+@import 'tailwindcss';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+/* Global styles */
+:root {
+  --ion-color-primary: #0055a5;
+  --ion-color-primary-rgb: 0, 85, 165;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #004b91;
+  --ion-color-primary-tint: #1a67ae;
+
+  --ion-color-secondary: #ff7a45;
+  --ion-color-secondary-rgb: 255, 122, 69;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #e06a3d;
+  --ion-color-secondary-tint: #ff8758;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+/* Accessibility styles for elderly users */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+ion-button {
+  text-transform: none;
+  font-weight: 600;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/* High contrast focused elements */
+:focus {
+  outline: 3px solid #ff7a45 !important;
+  outline-offset: 2px !important;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+/* Current datetime indicator in the footer */
+.app-datetime {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* Custom scrollbar for better visibility */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
