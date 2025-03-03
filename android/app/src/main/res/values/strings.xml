@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">eMOS Home</string>
+    <string name="title_activity_main">eMOS Home</string>
+    <string name="package_name">com.tanyijia.emoshome</string>
+    <string name="custom_url_scheme">com.tanyijia.emoshome</string>
+</resources>
