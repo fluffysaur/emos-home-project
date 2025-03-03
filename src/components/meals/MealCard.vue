@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <ion-card-header>
+    <ion-card-header class="px-5 py-2">
       <ion-card-title class="text-senior font-bold">{{ meal.name }}</ion-card-title>
       <div class="flex items-center mt-1">
         <ion-icon :icon="restaurantOutline" class="text-gray-500 mr-1"></ion-icon>

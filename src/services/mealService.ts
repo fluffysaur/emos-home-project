@@ -24,7 +24,8 @@ const mockMeals: Meal[] = [
     id: 'm1',
     name: 'Steamed Fish with Vegetables',
     description: 'Fresh steamed fish with seasonal vegetables and brown rice',
-    imageUrl: 'https://source.unsplash.com/random/300x200?fish',
+    imageUrl:
+      'https://www.weightloss.com.au/assets/Uploads/Recipes/steamed-chinese-fish-saute-vegetables-lge.jpg',
     mealType: 'lunch',
     dietaryInfo: {
       calories: 450,
@@ -40,7 +41,7 @@ const mockMeals: Meal[] = [
     id: 'm2',
     name: 'Chicken Rice',
     description: 'Traditional Singaporean chicken rice with cucumber',
-    imageUrl: 'https://source.unsplash.com/random/300x200?chicken-rice',
+    imageUrl: 'https://rasamalaysia.com/wp-content/uploads/2024/11/chicken-rice-thumb-500x500.jpg',
     mealType: 'lunch',
     dietaryInfo: {
       calories: 550,
@@ -56,7 +57,8 @@ const mockMeals: Meal[] = [
     id: 'm3',
     name: 'Vegetable Curry with Rice',
     description: 'Mixed vegetable curry served with white rice',
-    imageUrl: 'https://source.unsplash.com/random/300x200?vegetable-curry',
+    imageUrl:
+      'https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2021-09-sonoko-sakai-curry-with-rice%2F2021-09-09_ATK10573',
     mealType: 'dinner',
     dietaryInfo: {
       calories: 480,
@@ -72,7 +74,7 @@ const mockMeals: Meal[] = [
     id: 'm4',
     name: 'Pork Noodle Soup',
     description: 'Noodles in a savory pork broth with greens',
-    imageUrl: 'https://source.unsplash.com/random/300x200?noodle-soup',
+    imageUrl: 'https://img.taste.com.au/B54lI3Ss/taste/2019/04/quickporknoodlesoup-148548-1.jpg',
     mealType: 'dinner',
     dietaryInfo: {
       calories: 520,
