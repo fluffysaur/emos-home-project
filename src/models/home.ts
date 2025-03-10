@@ -8,6 +8,7 @@ export interface ActionCard {
   icon: string
   title: string
   backgroundColor: string
+  route: string
 }
 
 export interface MealDelivery {

@@ -1,7 +1,6 @@
 <template>
   <ion-app>
     <router-view />
-    <navigation-bar />
   </ion-app>
 </template>
 
@@ -9,7 +8,6 @@
 import { IonApp } from '@ionic/vue'
 import { onMounted } from 'vue'
 import { useAuthStore } from '@/stores/auth'
-import NavigationBar from '@/components/common/NavigationBar.vue'
 
 const authStore = useAuthStore()
 
