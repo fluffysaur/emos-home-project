@@ -2,37 +2,58 @@
 
 /* Global styles */
 :root {
-  --ion-color-primary: #0055a5;
-  --ion-color-primary-rgb: 0, 85, 165;
+  --ion-color-primary: #866695;
+  --ion-color-primary-rgb: 134, 102, 149;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #004b91;
-  --ion-color-primary-tint: #1a67ae;
+  --ion-color-primary-shade: #765983;
+  --ion-color-primary-tint: #9276a0;
 
-  --ion-color-secondary: #ff7a45;
-  --ion-color-secondary-rgb: 255, 122, 69;
+  --ion-color-secondary: #94a7f1;
+  --ion-color-secondary-rgb: 148, 167, 241;
   --ion-color-secondary-contrast: #000000;
   --ion-color-secondary-contrast-rgb: 0, 0, 0;
-  --ion-color-secondary-shade: #e06a3d;
-  --ion-color-secondary-tint: #ff8758;
+  --ion-color-secondary-shade: #8394d4;
+  --ion-color-secondary-tint: #a4b5f3;
+
+  --ion-color-tertiary: #95a85b;
+  --ion-color-tertiary-rgb: 149, 168, 91;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #849652;
+  --ion-color-tertiary-tint: #a6b96a;
+
+  --ion-color-singpass: #f4333d;
+  --ion-color-singpass-rgb: 244, 51, 61;
+  --ion-color-singpass-contrast: #ffffff;
+  --ion-color-singpass-contrast-rgb: 255, 255, 255;
+  --ion-color-singpass-shade: #d72d36;
+  --ion-color-singpass-tint: #f54750;
 }
 
 /* Accessibility styles for elderly users */
 body {
   font-size: 16px;
   line-height: 1.6;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    'Open Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  color: #333333;
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  letter-spacing: 0.05em; /* Default tracking-wide */
 }
 
 ion-button {
   text-transform: none;
   font-weight: 600;
-}
-
-/* High contrast focused elements */
-:focus {
-  outline: 3px solid #ff7a45 !important;
-  outline-offset: 2px !important;
 }
 
 /* Current datetime indicator in the footer */
@@ -60,4 +81,51 @@ ion-button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* Custom Color Classes */
+.ion-color-singpass {
+  --ion-color-base: var(--ion-color-singpass);
+  --ion-color-base-rgb: var(--ion-color-singpass-rgb);
+  --ion-color-contrast: var(--ion-color-singpass-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-singpass-contrast-rgb);
+  --ion-color-shade: var(--ion-color-singpass-shade);
+  --ion-color-tint: var(--ion-color-singpass-tint);
+}
+
+.ion-singpass-background {
+  background-color: var(--ion-color-singpass);
+  color: var(--ion-color-singpass-contrast);
+}
+
+.ion-singpass-text {
+  color: var(--ion-color-singpass);
+}
+
+.ion-singpass-border {
+  border-color: var(--ion-color-singpass);
+}
+
+/* Global styles */
+ion-app,
+ion-content {
+  min-height: 100vh; /* Ensure the app takes up at least the full viewport height */
+  --ion-background-color: #f9f9fb;
+  max-width: 480px;
+  margin: 0 auto; /* Center content */
+  overflow-x: hidden;
+}
+
+/* Center content if viewport width exceeds 480px */
+@media (min-width: 481px) {
+  ion-content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Disable iOS rubber band effect for better UX */
+html {
+  overflow: hidden;
+  height: 100%;
 }
