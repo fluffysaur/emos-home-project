@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 /* Global styles */
@@ -31,6 +32,11 @@
   --ion-color-singpass-tint: #f54750;
 }
 
+/* Set letter spacing for all elements */
+* {
+  letter-spacing: 0.05em;
+}
+
 /* Accessibility styles for elderly users */
 body {
   font-size: 16px;
@@ -48,7 +54,6 @@ body {
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  letter-spacing: 0.05em; /* Default tracking-wide */
 }
 
 ion-button {

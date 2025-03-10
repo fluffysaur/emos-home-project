@@ -10,11 +10,7 @@
         :class="item.isActive ? 'font-bold tracking-wide text-purple-400' : 'text-neutral-500'"
         @click="handleClick(item)"
       >
-        <img
-          :src="item.icon"
-          class="object-contain overflow-hidden w-8 aspect-square"
-          :alt="item.label"
-        />
+        <ion-icon :icon="item.icon" size="large" :alt="item.label" />
         <span class="mt-1">{{ item.label }}</span>
       </button>
     </div>
@@ -24,6 +20,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { IonIcon } from '@ionic/vue'
+import { homeOutline, personCircleOutline } from 'ionicons/icons'
 import type { NavItem } from './types'
 
 const route = useRoute()
@@ -31,12 +29,12 @@ const router = useRouter()
 
 const navItems: NavItem[] = [
   {
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/fdf4e9fcaf8a23a773dfaa31c147d3b67452d6de61aeb2ae7de5ec98a8be4c7f?placeholderIfAbsent=true&apiKey=abeb1f4ba85b45269a6aeb4e1c98d24d',
+    icon: homeOutline,
     label: 'Homepage',
     path: '/home',
   },
   {
-    icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/7a499e5bed522097dd9d11f4bf0ada0974ea21586a68a14253cd8994f61fce95?placeholderIfAbsent=true&apiKey=abeb1f4ba85b45269a6aeb4e1c98d24d',
+    icon: personCircleOutline,
     label: 'Account',
     path: '/account',
   },

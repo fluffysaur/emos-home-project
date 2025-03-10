@@ -3,10 +3,10 @@
     <IonContent>
       <div class="flex flex-col h-full">
         <NotificationBanner />
-        <div class="flex-grow px-6">
+        <div class="flex-grow px-6 overflow-y-auto">
           <p class="mt-4 text-2xl font-semibold">Hello, Andy!</p>
           <TodaysMealCard />
-          <ActionCards />
+          <ActionCards class="mt-3" />
         </div>
         <NavigationBar />
       </div>

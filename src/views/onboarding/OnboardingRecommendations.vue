@@ -32,7 +32,7 @@
 import { useRouter } from 'vue-router'
 import BackButton from '@/components/common/BackButton.vue'
 import FoodList from '@/components/onboarding/FoodList.vue'
-import { IonButton, IonContent, IonTitle, IonCard, IonCardContent } from '@ionic/vue'
+import { IonButton, IonContent, IonCard, IonCardContent } from '@ionic/vue'
 
 const recommendedFoods = [
   'fruits and vegetables',

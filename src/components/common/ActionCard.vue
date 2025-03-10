@@ -1,22 +1,17 @@
 <template>
-  <article
-    class="flex-1 shrink p-4 whitespace-nowrap rounded-3xl shadow-sm"
-    :class="card.backgroundColor"
-    @click="handleClick"
-  >
-    <img
-      :src="card.icon"
-      class="object-contain overflow-hidden w-7 aspect-square"
-      :alt="card.title"
-    />
-    <div class="mt-1 whitespace-pre-line text-2xl font-bold">{{ card.title }}</div>
-  </article>
+  <ion-button expand="block" @click="handleClick" :color="card.color">
+    <div class="flex flex-col text-left w-full">
+      <ion-icon :icon="card.icon" color="light" size="large" />
+      <div class="mt-1 text-xl font-bold text-white">{{ card.title }}</div>
+    </div>
+  </ion-button>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
 import type { ActionCard } from '@/models/home'
+import { IonButton, IonIcon } from '@ionic/vue'
 
 const router = useRouter()
 

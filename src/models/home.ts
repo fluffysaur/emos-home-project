@@ -7,7 +7,7 @@ export interface NavItem {
 export interface ActionCard {
   icon: string
   title: string
-  backgroundColor: string
+  color: string
   route: string
 }
 

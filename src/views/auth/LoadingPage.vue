@@ -29,7 +29,7 @@ const cancelTimeout = () => {
 onMounted(() => {
   timeoutId.value = window.setTimeout(() => {
     router.replace('/onboarding')
-  }, 3000)
+  }, 2000)
 })
 
 onUnmounted(() => {

@@ -49,9 +49,15 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
-    path: '/:pathMatch(.*)*',
-    redirect: '/login',
+    path: '/recommendations',
+    name: 'DoctorRecommendations',
+    component: () => import('@/views/account/RecommendationsPage.vue'),
+    meta: { requiresAuth: true },
   },
+  // {
+  //   path: '/:pathMatch(.*)*',
+  //   redirect: '/login',
+  // },
 ]
 
 const router = createRouter({
