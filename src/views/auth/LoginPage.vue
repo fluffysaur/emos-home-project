@@ -1,8 +1,8 @@
 <template>
   <ion-page>
     <ion-content>
-      <div class="flex flex-col min-h-screen p-6">
-        <p class="text-3xl font-bold mb-11">Log In</p>
+      <div class="flex flex-col min-h-screen p-6 py-8 justify-center">
+        <p class="text-5xl font-bold mb-11 text-center">NutriCare</p>
 
         <div class="px-10">
           <img
@@ -12,9 +12,9 @@
           />
         </div>
 
-        <p class="text-lg font-semibold mt-6">Log in to link your hospital records</p>
+        <p class="text-2xl font-bold my-12">Log in to link your hospital records.</p>
 
-        <ion-button expand="block" size="large" class="mt-6" color="singpass" @click="handleLogin">
+        <ion-button expand="block" size="large" color="singpass" @click="handleLogin">
           Log in with Singpass
         </ion-button>
       </div>

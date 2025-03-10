@@ -29,7 +29,7 @@
 
           <!-- Payment Methods Section -->
           <div class="text-xl font-bold mb-3">Payment Methods</div>
-          <ion-button expand="block" color="light" class="mb-12">
+          <ion-button expand="block" color="light" class="mb-12 rounded-2xl shadow-md">
             <div class="flex justify-between items-center w-full">
               <span>Add new card</span>
               <ion-icon :icon="addCircleOutline" />
@@ -40,7 +40,7 @@
           <ion-button id="logout-alert" expand="block" color="danger" size="medium" class="mb-6">
             Log Out
           </ion-button>
-          <logout-modal />
+          <logout-alert />
         </div>
       </div>
 
@@ -55,7 +55,7 @@ import { addCircleOutline, clipboardOutline } from 'ionicons/icons'
 import DetailItem from '@/components/onboarding/DetailItem.vue'
 import NavigationBar from '@/components/common/NavigationBar.vue'
 import ActionCard from '@/components/common/ActionCard.vue'
-import LogoutModal from '@/components/account/LogoutModal.vue'
+import LogoutAlert from '@/components/account/LogoutAlert.vue'
 
 const docRecCard = {
   icon: clipboardOutline,

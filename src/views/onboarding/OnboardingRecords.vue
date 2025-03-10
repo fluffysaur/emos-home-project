@@ -3,29 +3,31 @@
     <BackButton />
 
     <ion-grid class="mt-9 mx-6">
-      <h1 class="text-base font-semibold leading-6 text-zinc-800">
+      <div class="text-lg font-semibold mb-4">
         We found your medical records at National University Hospital.
-      </h1>
-      <ion-card class="px-6 pt-4 pb-6 bg-white rounded-lg">
-        <PatientDetails
-          name="Andy Tan Wee Ming"
-          nric="S1234567A"
-          phone="9123 4567"
-          department="Medical Oncology"
-          doctor="Dr. Lim Lauren Uy"
-        />
-        <ion-button expand="block" @click="handleContinue">Continue</ion-button>
+      </div>
+      <ion-card class="bg-white rounded-lg">
+        <ion-card-content>
+          <PatientDetails
+            name="Andy Tan Wee Ming"
+            nric="S1234567A"
+            phone="9123 4567"
+            department="Medical Oncology"
+            doctor="Dr. Lim Lauren Uy"
+          />
+        </ion-card-content>
       </ion-card>
-      <p class="mt-4">
+      <div class="mt-4 mb-6 font-light">
         If this is not you, log in to Singpass again. If details are incorrect, email
         <strong>contactus@nuhs.edu.sg</strong> for help.
-      </p>
+      </div>
+      <ion-button expand="block" @click="handleContinue">Continue</ion-button>
     </ion-grid>
   </ion-content>
 </template>
 
 <script setup lang="ts">
-import { IonCard, IonButton, IonContent, IonGrid, IonRow, IonCol } from '@ionic/vue'
+import { IonCard, IonButton, IonContent, IonGrid, IonCardContent } from '@ionic/vue'
 import { useRouter } from 'vue-router'
 import BackButton from '@/components/common/BackButton.vue'
 import PatientDetails from '@/components/onboarding/PatientDetails.vue'

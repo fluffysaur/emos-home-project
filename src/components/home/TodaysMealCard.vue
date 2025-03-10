@@ -5,7 +5,7 @@
       <div class="text-xl font-bold">Today's Meal</div>
     </div>
     <div class="mt-4 text-3xl font-semibold">Chicken Rice</div>
-    <div class="mt-8">
+    <div class="mt-8 text-lg">
       <div>Deliver at <strong>2.30pm</strong></div>
       <div>to <strong>Blk 123 Bukit Batok Central #2312-3412</strong></div>
     </div>

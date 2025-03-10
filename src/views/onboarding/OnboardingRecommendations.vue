@@ -2,8 +2,8 @@
   <ion-content>
     <BackButton />
 
-    <section class="mt-9 mx-6">
-      <p class="text-lg mb-4">Your doctor's recommendations</p>
+    <section class="mt-9 mx-6 relative">
+      <div class="text-lg font-semibold mb-4">Your doctor's recommendations</div>
       <ion-card class="bg-white rounded-lg">
         <ion-card-content>
           <div class="text-zinc-800">
@@ -20,10 +20,9 @@
               :iconUrl="'https://cdn.builder.io/api/v1/image/assets/TEMP/dff5e70fe870e55133e0f5c543fa56963fa6f0edf7e923acb44eff602994bdfb?placeholderIfAbsent=true&apiKey=abeb1f4ba85b45269a6aeb4e1c98d24d'"
             />
           </div>
-
-          <ion-button expand="block" class="mt-6" @click="handleContinue">Continue</ion-button>
         </ion-card-content>
       </ion-card>
+      <ion-button expand="block" class="mt-6" @click="handleContinue">Continue</ion-button>
     </section>
   </ion-content>
 </template>

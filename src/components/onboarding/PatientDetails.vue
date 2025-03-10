@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-4 pb-6 m-0">
+  <section>
     <div class="flex flex-col gap-3">
       <DetailItem label="Name" :value="props.name" />
       <div class="flex gap-4">

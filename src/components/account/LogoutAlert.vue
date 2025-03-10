@@ -1,9 +1,9 @@
 <template>
   <ion-alert
     trigger="logout-alert"
-    header="Logout"
+    header="Confirm Logout"
     :buttons="alertButtons"
-    message="Are you sure you want to log out?"
+    message="You will be returned to the login screen."
   />
 </template>
 
@@ -22,7 +22,7 @@ const alertButtons = [
     },
   },
   {
-    text: 'Logout',
+    text: 'Log out',
     role: 'confirm',
     handler: () => {
       handleLogout()
