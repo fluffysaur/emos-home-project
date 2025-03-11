@@ -49,9 +49,9 @@ class MealService {
       },
       {
         id: 'C14523B',
-        name: 'Changi Hospital',
+        name: 'Changi General Hospital',
         price: 8.99,
-        logo: 'https://lienfoundation.org/wp-content/uploads/2024/01/ttsh-logo.png',
+        logo: 'https://www.cgh.com.sg/Style%20Library/Common/images/header/site-logo.png',
         mealOptions: mealNames.map((name, index) => ({
           id: `M1234567${String.fromCharCode(65 + index)}`,
           name,
@@ -67,7 +67,7 @@ class MealService {
         id: 'P7890123C',
         name: 'Mount Elizabeth Hospital',
         price: 7.49,
-        logo: 'https://lienfoundation.org/wp-content/uploads/2024/01/ttsh-logo.png',
+        logo: 'https://www.mountelizabeth.com.sg/images/default-source/default-album/mount_elizabeth_horizontal_logo_gold_resize.png',
         mealOptions: mealNames.map((name, index) => ({
           id: `M7890123${String.fromCharCode(65 + index)}`,
           name,
@@ -83,7 +83,7 @@ class MealService {
         id: 'C9876543D',
         name: 'Gleneagles Hospital',
         price: 6.99,
-        logo: 'https://lienfoundation.org/wp-content/uploads/2024/01/ttsh-logo.png',
+        logo: 'https://www.gleneagles.com.sg/images/gehlibraries/default-album/logo-geh.png',
         mealOptions: mealNames.map((name, index) => ({
           id: `M9876543${String.fromCharCode(65 + index)}`,
           name,

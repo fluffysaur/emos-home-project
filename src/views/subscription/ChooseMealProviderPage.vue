@@ -44,8 +44,10 @@ import MealProviderOption from '@/components/subscription/MealProviderOption.vue
 const mealStore = useMealStore()
 
 onMounted(async () => {
-  mealStore.setIsLoading(true)
-  await MealService.retrieveProviders()
-  mealStore.setIsLoading(false)
+  if (!mealStore.$state.providers?.length) {
+    mealStore.setIsLoading(true)
+    await MealService.retrieveProviders()
+    mealStore.setIsLoading(false)
+  }
 })
 </script>

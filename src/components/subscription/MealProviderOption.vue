@@ -1,7 +1,7 @@
 <template>
   <section class="flex items-center gap-4 cursor-pointer" @click="handleSelectProvider">
     <ion-card class="shadow-md p-2">
-      <img :src="props.logo" :alt="`${props.name} Logo`" class="h-24 w-24 object-fit" />
+      <img :src="props.logo" :alt="`${props.name} Logo`" class="h-24 w-24 object-contain" />
     </ion-card>
     <div class="flex-1 flex-col gap-2">
       <div class="text-xl font-semibold">{{ props.name }}</div>

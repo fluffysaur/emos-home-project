@@ -59,6 +59,6 @@ const providerId = route.query.providerId as string
 const provider = ref(mealStore.getSelectedProviderDetails(providerId))
 
 function handleSubscribe() {
-  console.log(`Subscribed to ${provider.value.name}`)
+  console.log(`Subscribed to ${provider.value?.name}`)
 }
 </script>
