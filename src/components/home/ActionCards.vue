@@ -1,6 +1,6 @@
 <template>
   <section class="flex gap-3 text-white">
-    <ActionCard v-for="card in cards" :key="card.title" :card="card" />
+    <ActionCard v-for="card in cards" :key="card.title" :card="card" class="flex-1" />
   </section>
 </template>
 

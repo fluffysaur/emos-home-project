@@ -35,21 +35,17 @@
 /* Set letter spacing for all elements */
 * {
   letter-spacing: 0.05em;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 /* Accessibility styles for elderly users */
 body {
-  font-size: 16px;
-  line-height: 1.6;
-  font-family:
-    'Open Sans',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   color: #333333;
   height: 100%;
   overflow: auto;
@@ -115,14 +111,14 @@ ion-button {
 ion-app,
 ion-content {
   min-height: 100vh; /* Ensure the app takes up at least the full viewport height */
-  --ion-background-color: #f9f9fb;
-  max-width: 480px;
+  --ion-background-color: #F9F4FB;
+  max-width: 360px;
   margin: 0 auto; /* Center content */
   overflow-x: hidden;
 }
 
 /* Center content if viewport width exceeds 480px */
-@media (min-width: 481px) {
+@media (min-width: 361px) {
   ion-content {
     margin-left: auto;
     margin-right: auto;
