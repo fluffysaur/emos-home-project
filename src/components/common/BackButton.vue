@@ -1,7 +1,7 @@
 <template>
-  <button @click="goBack" class="flex items-center bg-none border-none cursor-pointer mt-4 ml-4">
+  <button @click="goBack" class="flex items-center bg-none border-none cursor-pointer my-6 mx-4">
     <ion-icon :icon="arrowBackOutline" class="mr-1" color="medium" />
-    <span class="font-semibold" style="color: var(--ion-color-medium)">Back</span>
+    <span class="font-semibold" style="color: var(--ion-color-medium)">{{ label }}</span>
   </button>
 </template>
 
@@ -15,6 +15,11 @@ const props = defineProps({
     type: String,
     required: false,
     default: null,
+  },
+  label: {
+    type: String,
+    required: false,
+    default: 'Back',
   },
 })
 

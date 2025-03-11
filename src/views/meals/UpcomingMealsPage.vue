@@ -3,7 +3,7 @@
     <ion-content>
       <back-button />
 
-      <section class="py-6 px-4">
+      <section class="pb-6 px-4">
         <div class="text-xl font-semibold mb-4">View upcoming meals</div>
 
         <!-- Week Selector Component -->
