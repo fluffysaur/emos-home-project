@@ -15,7 +15,12 @@
         <p class="text-2xl font-bold my-12">Log in to link your hospital records.</p>
 
         <ion-button expand="block" size="large" color="singpass" @click="handleLogin">
-          Log in with Singpass
+          Log in with
+          <img
+            src="@/assets/images/singpass_logo_white.svg"
+            alt="Singpass Logo"
+            class="inline-block h-5 ml-2 mt-1"
+          />
         </ion-button>
       </div>
     </ion-content>
