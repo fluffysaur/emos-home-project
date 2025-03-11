@@ -112,13 +112,13 @@ ion-app,
 ion-content {
   min-height: 100vh; /* Ensure the app takes up at least the full viewport height */
   --ion-background-color: #F9F4FB;
-  max-width: 360px;
+  max-width: 420px;
   margin: 0 auto; /* Center content */
   overflow-x: hidden;
 }
 
 /* Center content if viewport width exceeds 480px */
-@media (min-width: 361px) {
+@media (min-width: 421px) {
   ion-content {
     margin-left: auto;
     margin-right: auto;
