@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       document.referrer.includes('android-app://')
     ) {
       await StatusBar.setStyle({ style: Style.Light })
+      await StatusBar.show()
       await SplashScreen.hide()
     }
   } catch (error) {
