@@ -14,7 +14,7 @@ export interface Provider {
   name: string
   price: number
   mealOptions: Meal[]
-  logoSrc: string
+  logo: string
 }
 
 export interface SelectedDayMeals {

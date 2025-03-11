@@ -6,10 +6,13 @@
         <ion-card class="rounded-b-3xl mb-6">
           <ion-card-content>
             <div class="flex flex-col gap-2">
-              <detail-item label="Name" value="Andy Tan Wee Ming" />
-              <detail-item label="NRIC" value="S1234567A" />
-              <detail-item label="Department" value="Medical Oncology" />
-              <detail-item label="Doctor" value="Dr. Lim Lauren Uy" />
+              <detail-item label="Name" :value="authStore.$state.user?.name" />
+              <detail-item label="NRIC" :value="authStore.$state.user?.id" />
+              <detail-item
+                label="Department"
+                :value="authStore.$state.user?.medicalInfo.department"
+              />
+              <detail-item label="Doctor" :value="authStore.$state.user?.medicalInfo.doctor" />
             </div>
           </ion-card-content>
         </ion-card>
@@ -17,11 +20,23 @@
         <div class="mx-6">
           <!-- Subscription Details Section -->
           <div class="text-xl font-bold mb-3">Subscription Details</div>
-          <ion-card class="mb-6">
-            <ion-card-content>
+          <ion-card class="mb-6 rounded-xl">
+            <!-- Have subscription -->
+            <ion-card-content v-if="authStore.$state.user?.subscription">
+              <div class="mb-4">
+                <div class="text-sm">You receive meals from.</div>
+                <div class="text-black">{{ authStore.$state.user?.subscription.vendor }}</div>
+              </div>
+
+              <ion-button expand="block" class="text-lg">
+                <span class="my-2">View subscription</span>
+              </ion-button>
+            </ion-card-content>
+            <!-- No subscription -->
+            <ion-card-content v-else>
               <div class="mb-4">You have no meal plan subscription at the moment.</div>
               <ion-button expand="block" class="text-lg">
-                <span class="my-2">Subscribe to a meal plan</span>
+                <span class="my-2" @click="routeToSubscription">Subscribe to a meal plan</span>
               </ion-button>
             </ion-card-content>
           </ion-card>
@@ -54,4 +69,13 @@ import { addCircleOutline } from 'ionicons/icons'
 import DetailItem from '@/components/onboarding/DetailItem.vue'
 import NavigationBar from '@/components/common/NavigationBar.vue'
 import LogoutAlert from '@/components/account/LogoutAlert.vue'
+import { useAuthStore } from '@/stores/authStore'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+function routeToSubscription() {
+  router.push('/subscription/choose-meal-provider')
+}
 </script>

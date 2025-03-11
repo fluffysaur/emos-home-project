@@ -32,6 +32,9 @@ export const useMealStore = defineStore('meals', {
         ) || []
       )
     },
+    getSelectedProviderDetails: (state) => (providerId: string) => {
+      return state.providers?.find((p) => p.id === providerId) || null
+    },
   },
   actions: {
     setProviders(providers: Provider[]) {

@@ -54,6 +54,21 @@ const routes = [
     component: () => import('@/views/account/RecommendationsPage.vue'),
     meta: { requiresAuth: true },
   },
+  {
+    path: '/subscription/choose-meal-provider',
+    name: 'ChooseMealProvider',
+    component: () => import('@/views/subscription/ChooseMealProviderPage.vue'),
+    meta: { requiresAuth: true },
+  },
+  {
+    path: '/subscription/choose-meal-provider/provider-details',
+    name: 'MealProviderDetails',
+    component: () => import('@/views/subscription/MealProviderDetailsPage.vue'),
+    meta: { requiresAuth: true },
+    props: (route: { query: { providerId: string } }) => ({
+      query: { providerId: route.query.providerId },
+    }),
+  },
 ]
 
 const router = createRouter({
