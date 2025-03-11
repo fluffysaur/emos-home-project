@@ -26,39 +26,50 @@
         </div>
 
         <!-- Selected Meals for Week -->
-        <div v-if="weekMeals?.length">
-          <!-- Daily Meal Cards -->
-          <ion-card v-for="day in weekMeals" :key="day.date" class="mb-4">
-            <ion-card-content>
-              <div class="text-lg">
-                {{ format(day.date, 'EEEE, d MMMM yyyy') }}
-              </div>
-              <div v-if="day.lunch || day.dinner" class="flex flex-col my-4 gap-4">
-                <div v-if="day.lunch" class="flex gap-4 items-center">
-                  <img :src="day.lunch.img" class="w-16 h-16 object-cover rounded-lg" />
-                  <div>
-                    <div class="font-semibold">Lunch</div>
-                    <div class="mt-2">{{ day.lunch.name }}</div>
+        <section v-if="mealStore.$state.isLoading">
+          <ion-skeleton-text
+            v-for="i in 3"
+            :key="i"
+            animated
+            class="mt-4 rounded-xl"
+            style="width: 100%; height: 10rem"
+          />
+        </section>
+        <section v-else>
+          <div v-if="weekMeals?.length">
+            <!-- Daily Meal Cards -->
+            <ion-card v-for="day in weekMeals" :key="day.date" class="mb-4 rounded-xl">
+              <ion-card-content>
+                <div class="text-lg">
+                  {{ format(day.date, 'EEEE, d MMMM yyyy') }}
+                </div>
+                <div v-if="day.lunch || day.dinner" class="flex flex-col my-4 gap-4">
+                  <div v-if="day.lunch" class="flex gap-4 items-center">
+                    <img :src="day.lunch.img" class="w-16 h-16 object-cover rounded-lg" />
+                    <div>
+                      <div class="font-semibold">Lunch</div>
+                      <div class="mt-2">{{ day.lunch.name }}</div>
+                    </div>
+                  </div>
+                  <div v-if="day.dinner" class="flex gap-4 items-center">
+                    <img :src="day.dinner.img" class="w-16 h-16 object-cover rounded-lg" />
+                    <div>
+                      <div class="font-semibold">Dinner</div>
+                      <div class="mt-2">{{ day.dinner.name }}</div>
+                    </div>
                   </div>
                 </div>
-                <div v-if="day.dinner" class="flex gap-4 items-center">
-                  <img :src="day.dinner.img" class="w-16 h-16 object-cover rounded-lg" />
-                  <div>
-                    <div class="font-semibold">Dinner</div>
-                    <div class="mt-2">{{ day.dinner.name }}</div>
-                  </div>
+                <div v-else>
+                  <div>No meals selected for this day</div>
                 </div>
-              </div>
-              <div v-else>
-                <div>No meals selected for this day</div>
-              </div>
-              <ion-button fill="outline" expand="block"> Change meals </ion-button>
-            </ion-card-content>
-          </ion-card>
-        </div>
-        <div v-else>
-          <div>No meals selected for this week</div>
-        </div>
+                <ion-button fill="outline" expand="block"> Change meals </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div v-else>
+            <div>No meals selected for this week</div>
+          </div>
+        </section>
       </section>
     </ion-content>
   </ion-page>
@@ -66,7 +77,15 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { IonPage, IonContent, IonIcon, IonCard, IonCardContent, IonButton } from '@ionic/vue'
+import {
+  IonPage,
+  IonContent,
+  IonIcon,
+  IonCard,
+  IonCardContent,
+  IonButton,
+  IonSkeleton,
+} from '@ionic/vue'
 import { chevronBackCircle, chevronForwardCircle } from 'ionicons/icons'
 import { format, startOfWeek, endOfWeek } from 'date-fns'
 import BackButton from '@/components/common/BackButton.vue'

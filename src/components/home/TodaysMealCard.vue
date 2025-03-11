@@ -6,17 +6,9 @@
     </div>
 
     <!-- If loading -->
-    <div v-if="isLoading">
-      <ion-skeleton-text
-        animated
-        class="mt-4"
-        style="width: 100%; height: 1.5rem"
-      ></ion-skeleton-text>
-      <ion-skeleton-text
-        animated
-        class="mt-4"
-        style="width: 100%; height: 3rem"
-      ></ion-skeleton-text>
+    <div v-if="mealStore.$state.isLoading">
+      <ion-skeleton-text animated class="mt-4" style="width: 100%; height: 4rem" />
+      <ion-skeleton-text animated class="mt-4" style="width: 100%; height: 2rem" />
     </div>
 
     <!-- If meal has been selected for today -->
@@ -70,8 +62,4 @@ import { format } from 'date-fns'
 const authStore = useAuthStore()
 const mealStore = useMealStore()
 const deliveryStore = useDeliveryStore()
-
-defineProps<{
-  isLoading: boolean
-}>()
 </script>

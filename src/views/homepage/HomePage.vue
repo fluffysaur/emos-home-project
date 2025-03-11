@@ -11,7 +11,7 @@
           <NotificationBanner />
           <div class="px-6">
             <p class="my-4 text-2xl font-semibold">Hello, {{ authStore.$state.user?.name }} !</p>
-            <TodaysMealCard :is-loading="isLoading" />
+            <TodaysMealCard />
             <ActionCards class="mt-3" />
           </div>
         </div>
@@ -22,22 +22,23 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { IonPage, IonContent } from '@ionic/vue'
 import NotificationBanner from '@/components/home/NotificationBanner.vue'
 import TodaysMealCard from '@/components/home/TodaysMealCard.vue'
 import ActionCards from '@/components/home/ActionCards.vue'
 import NavigationBar from '@/components/common/NavigationBar.vue'
 import { useAuthStore } from '@/stores/authStore'
+import { useMealStore } from '@/stores/mealStore'
 import mealService from '@/services/mealService'
 import deliveryService from '@/services/deliveryService'
 
 const authStore = useAuthStore()
-
-const isLoading = ref(true)
+const mealStore = useMealStore()
 
 onMounted(async () => {
+  mealStore.setIsLoading(true)
   await Promise.all([mealService.retrieveSelectedMeals(), deliveryService.retrieveDeliveryInfo()])
-  isLoading.value = false
+  mealStore.setIsLoading(false)
 })
 </script>
