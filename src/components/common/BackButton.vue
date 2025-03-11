@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { defineProps } from 'vue'
 import { IonIcon } from '@ionic/vue'
 import { arrowBackOutline } from 'ionicons/icons'
 

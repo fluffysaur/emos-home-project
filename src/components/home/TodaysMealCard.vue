@@ -6,14 +6,21 @@
     </div>
 
     <!-- If loading -->
-     <div v-if="isLoading">
-      <ion-skeleton-text animated class="mt-4" style="width: 100%; height: 1.5rem;"></ion-skeleton-text>
-      <ion-skeleton-text animated class="mt-4" style="width: 100%; height: 3rem;"></ion-skeleton-text>
-     </div>
+    <div v-if="isLoading">
+      <ion-skeleton-text
+        animated
+        class="mt-4"
+        style="width: 100%; height: 1.5rem"
+      ></ion-skeleton-text>
+      <ion-skeleton-text
+        animated
+        class="mt-4"
+        style="width: 100%; height: 3rem"
+      ></ion-skeleton-text>
+    </div>
 
     <!-- If meal has been selected for today -->
     <div v-else-if="mealStore.todaysMeals?.lunch || mealStore.todaysMeals?.dinner" class="mt-4">
-
       <!-- Meals -->
       <div class="flex flex-col gap-4">
         <div v-if="mealStore.todaysMeals?.lunch" class="flex gap-4 items-center">
@@ -34,8 +41,13 @@
 
       <!-- Delivery Info -->
       <div v-if="deliveryStore.$state.deliveryTime" class="mt-4">
-        <div>Next delivery at <strong>{{ format(deliveryStore.$state.deliveryTime, "hh:mm a") }}</strong></div>
-        <div>to <strong>{{ authStore.$state.user?.address }}</strong></div>
+        <div>
+          Next delivery at
+          <strong>{{ format(deliveryStore.$state.deliveryTime, 'hh:mm a') }}</strong>
+        </div>
+        <div>
+          to <strong>{{ authStore.$state.user?.address }}</strong>
+        </div>
       </div>
     </div>
 
@@ -44,12 +56,10 @@
       <div class="mt-4 text-3xl font-semibold">No meals selected</div>
       <div class="mt-4 text-lg">You have not ordered any meals for today.</div>
     </div>
-
   </ion-card>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import { useAuthStore } from '@/stores/authStore'
 import { useMealStore } from '@/stores/mealStore'
 import { useDeliveryStore } from '@/stores/deliveryStore'

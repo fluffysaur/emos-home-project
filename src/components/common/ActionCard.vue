@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
 import type { ActionCard } from '@/models/home'
 import { IonButton, IonIcon } from '@ionic/vue'
