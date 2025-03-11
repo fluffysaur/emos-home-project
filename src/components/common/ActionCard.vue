@@ -1,7 +1,7 @@
 <template>
   <ion-button expand="block" @click="handleClick" :color="card.color" class="rounded-2xl shadow-lg">
     <div class="flex flex-col text-left w-full">
-      <ion-icon :icon="card.icon" color="light" size="large" />
+      <ion-icon :icon="card.icon" color="light" size="large" class="opacity-50" />
       <div class="mt-1 text-2xl font-bold text-white">{{ card.title }}</div>
     </div>
   </ion-button>

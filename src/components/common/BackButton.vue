@@ -1,25 +1,18 @@
 <template>
-  <button @click="goBack" class="flex items-center bg-none border-none cursor-pointer my-6 mx-4">
-    <ion-icon :icon="arrowBackOutline" class="mr-1" color="medium" />
-    <span class="font-semibold" style="color: var(--ion-color-medium)">{{ label }}</span>
-  </button>
+  <ion-buttons @click="goBack" class="flex items-center bg-none border-none my-6 mx-4">
+    <ion-back-button default-href="#" />
+  </ion-buttons>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { IonIcon } from '@ionic/vue'
-import { arrowBackOutline } from 'ionicons/icons'
+import { IonButtons, IonBackButton } from '@ionic/vue'
 
 const props = defineProps({
   route: {
     type: String,
     required: false,
     default: null,
-  },
-  label: {
-    type: String,
-    required: false,
-    default: 'Back',
   },
 })
 

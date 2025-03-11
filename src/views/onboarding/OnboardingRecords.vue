@@ -1,7 +1,7 @@
 <template>
   <ion-content>
     <div class="flex flex-col h-full">
-      <BackButton label="Back to login" />
+      <BackButton />
       <ion-grid class="mx-6 mb-4 flex flex-col justify-between">
         <div>
           <div class="text-lg font-semibold mb-4">

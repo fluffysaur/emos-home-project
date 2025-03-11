@@ -84,7 +84,7 @@ import {
   IonCard,
   IonCardContent,
   IonButton,
-  IonSkeleton,
+  IonSkeletonText,
 } from '@ionic/vue'
 import { chevronBackCircle, chevronForwardCircle } from 'ionicons/icons'
 import { format, startOfWeek, endOfWeek } from 'date-fns'

@@ -5,11 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { restaurantOutline, bulbOutline } from 'ionicons/icons'
+import { restaurantOutline, clipboardOutline } from 'ionicons/icons'
 import ActionCard from '@/components/common/ActionCard.vue'
-import type { ActionCard as ActionCardType } from '@/models/home'
 
-const cards: ActionCardType[] = [
+const cards = [
   {
     icon: restaurantOutline,
     title: 'Upcoming Meals',
@@ -17,10 +16,10 @@ const cards: ActionCardType[] = [
     route: '/upcoming-meals',
   },
   {
-    icon: bulbOutline,
-    title: 'Health Tips',
+    icon: clipboardOutline,
+    title: 'Dietary Information',
     color: 'tertiary',
-    route: '/health-tips',
+    route: '/recommendations',
   },
 ]
 </script>

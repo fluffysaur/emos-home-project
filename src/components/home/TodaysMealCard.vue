@@ -1,7 +1,7 @@
 <template>
   <ion-card class="p-4 w-full rounded-3xl shadow-sm">
     <div class="flex items-center">
-      <ion-icon :icon="restaurantOutline" alt="Meal icon" class="text-2xl mr-2" />
+      <ion-icon :icon="restaurantOutline" alt="Meal icon" class="text-2xl mr-2" color="primary" />
       <div class="text-xl font-bold">Today's Meals</div>
     </div>
 
