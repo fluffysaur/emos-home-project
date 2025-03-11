@@ -34,14 +34,10 @@ import deliveryService from '@/services/deliveryService'
 
 const authStore = useAuthStore()
 
-const isLoading = ref(true);
+const isLoading = ref(true)
 
 onMounted(async () => {
-  await Promise.all([
-    mealService.retrieveSelectedMeals(),
-    deliveryService.retrieveDeliveryInfo()
-  ])
-  isLoading.value = false;
+  await Promise.all([mealService.retrieveSelectedMeals(), deliveryService.retrieveDeliveryInfo()])
+  isLoading.value = false
 })
-
 </script>

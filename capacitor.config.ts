@@ -1,9 +1,9 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
-  appId: 'com.tanyijia.emoshome',
-  appName: 'eMOS Home',
-  webDir: 'dist'
-};
+  appId: 'com.tanyijia.nutricare',
+  appName: 'NutriCare',
+  webDir: 'dist',
+}
 
-export default config;
+export default config
