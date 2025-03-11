@@ -15,6 +15,13 @@ import { IonButton, IonIcon } from '@ionic/vue'
 
 const router = useRouter()
 
+interface ActionCard {
+  icon: string
+  title: string
+  color: string
+  route: string
+}
+
 const props = defineProps<{
   card: ActionCard
 }>()

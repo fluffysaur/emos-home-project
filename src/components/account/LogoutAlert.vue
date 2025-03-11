@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { IonAlert } from '@ionic/vue'
+import AuthService from '@/services/authService'
 
 const router = useRouter()
 
@@ -32,6 +33,7 @@ const alertButtons = [
 
 function handleLogout() {
   console.log('Logging out...')
+  AuthService.logout();
   router.push('/login')
 }
 </script>

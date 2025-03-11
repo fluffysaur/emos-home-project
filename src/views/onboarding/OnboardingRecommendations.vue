@@ -2,7 +2,7 @@
   <ion-content>
     <BackButton />
 
-    <section class="mt-9 mx-6 relative">
+    <section class="mt-9 mx-6 mb-4 relative">
       <div class="text-lg font-semibold mb-4">Your doctor's recommendations</div>
       <ion-card class="bg-white rounded-lg">
         <ion-card-content>

@@ -1,6 +1,6 @@
 <template>
   <ion-content>
-    <BackButton />
+    <back-button />
 
     <section class="mt-9 mx-6">
       <p class="text-lg font-semibold mb-4">Your doctor's recommendations</p>

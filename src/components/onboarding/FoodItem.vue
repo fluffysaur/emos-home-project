@@ -4,7 +4,7 @@
       :icon="checkmark"
       :alt="`${text} icon`"
     />
-    <div>{{ text }}</div>
+    {{ text }}
   </div>
 </template>
 

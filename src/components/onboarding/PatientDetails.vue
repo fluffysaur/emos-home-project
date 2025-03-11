@@ -14,7 +14,14 @@
 
 <script setup lang="ts">
 import DetailItem from './DetailItem.vue'
-import type { PatientDetailsProps } from '@/models/onboarding'
+
+export interface PatientDetailsProps {
+  name?: string
+  nric?: string
+  phone?: string
+  department?: string
+  doctor?: string
+}
 
 const props = defineProps<PatientDetailsProps>()
 </script>

@@ -8,7 +8,11 @@
 </template>
 
 <script setup lang="ts">
-import type { DetailItemProps } from '@/models/onboarding'
+export interface DetailItemProps {
+  label?: string
+  value?: string
+  halfWidth?: boolean
+}
 
 const props = defineProps<DetailItemProps>()
 </script>

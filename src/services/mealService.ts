@@ -1,126 +1,101 @@
-import type { WeeklyMenu, Meal } from '@/models/meal'
+import { useMealStore } from '@/stores/mealStore';
+import type { Meal } from '@/models/meal';
 
-// Generate dates for the current week
-function generateWeekDates(): string[] {
-  const dates: string[] = []
-  const today = new Date()
-  const currentDay = today.getDay()
+const store = useMealStore();
 
-  // Start from Monday (or the next Monday if today is after Wednesday)
-  const startDay = currentDay > 3 ? 8 - currentDay : 1 - currentDay
+class MealService {
+  private apiUrl: string;
 
-  for (let i = 0; i < 7; i++) {
-    const date = new Date(today)
-    date.setDate(today.getDate() + startDay + i)
-    dates.push(date.toISOString().split('T')[0])
+  constructor(apiUrl: string) {
+    this.apiUrl = apiUrl;
   }
 
-  return dates
+  static async retrieveProviders() {
+    const mockProviders = [
+      {
+        id: "P1234567A",
+        name: "Tan Tock Seng Hospital",
+        price: 5.99,
+        logoSrc: "https://lienfoundation.org/wp-content/uploads/2024/01/ttsh-logo.png",
+        mealOptions: [
+          {
+            id: "M1234567A",
+            name: "Grilled Chicken",
+            img: "https://www.balancenutrition.in/images/receipe-img/1663857926_large.jpeg",
+            description: "Succulent grilled chicken served with a medley of fresh, mixed vegetables.",
+            type: "lunch",
+            date: new Date(),
+            dietaryPreferences: ["Low salt", "Low sugar"],
+            allergens: ["Soy, Gluten, Egg"]
+          },
+          {
+            id: "M1234567B",
+            name: "Salmon",
+            img: "https://www.eatingwell.com/thmb/7cHxyYJme47gGuplo3Z3fep95FY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5544320-04f567e988ce416dadc24ba38716147d.jpg",
+            description: "Delicious salmon fillet paired with a variety of mixed vegetables.",
+            type: "dinner",
+            date: new Date(),
+            dietaryPreferences: ["Low salt"],
+            allergens: null
+          }
+        ] as Meal[]
+      }
+    ]
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      store.setProviders(mockProviders);
+    } catch (error) {
+      throw new Error(`retrieveProviders failed: ${error}`);
+    }
+  }
+
+  static async retrieveSelectedMeals() {
+    const mockSelectedMeals = [] as SelectedDayMeals[];
+    const mealTypes = ["lunch", "dinner"];
+    const mealNames = ["Grilled Chicken", "Salmon", "Beef Steak", "Vegetable Stir Fry", "Pasta Primavera", "Tofu Salad", "Shrimp Scampi"];
+    const mealImages = [
+      "https://www.balancenutrition.in/images/receipe-img/1663857926_large.jpeg",
+      "https://www.eatingwell.com/thmb/7cHxyYJme47gGuplo3Z3fep95FY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5544320-04f567e988ce416dadc24ba38716147d.jpg",
+      "https://www.simplyrecipes.com/thmb/7cHxyYJme47gGuplo3Z3fep95FY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5544320-04f567e988ce416dadc24ba38716147d.jpg",
+      "https://www.simplyrecipes.com/thmb/7cHxyYJme47gGuplo3Z3fep95FY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5544320-04f567e988ce416dadc24ba38716147d.jpg",
+      "https://www.simplyrecipes.com/thmb/7cHxyYJme47gGuplo3Z3fep95FY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5544320-04f567e988ce416dadc24ba38716147d.jpg",
+      "https://www.simplyrecipes.com/thmb/7cHxyYJme47gGuplo3Z3fep95FY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5544320-04f567e988ce416dadc24ba38716147d.jpg",
+      "https://www.simplyrecipes.com/thmb/7cHxyYJme47gGuplo3Z3fep95FY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5544320-04f567e988ce416dadc24ba38716147d.jpg"
+    ];
+
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(new Date().setDate(new Date().getDate() + i));
+      const lunch = {
+        id: `M${i}L`,
+        name: mealNames[i % mealNames.length],
+        img: mealImages[i % mealImages.length],
+        description: `${mealNames[i % mealNames.length]} served with a medley of fresh, mixed vegetables.`,
+        type: "lunch",
+        date: date,
+        dietaryPreferences: ["Low salt", "Low sugar"],
+        allergens: ["Soy", "Gluten", "Egg"]
+      };
+      const dinner = {
+        id: `M${i}D`,
+        name: mealNames[(i + 1) % mealNames.length],
+        img: mealImages[(i + 1) % mealImages.length],
+        description: `${mealNames[(i + 1) % mealNames.length]} served with a medley of fresh, mixed vegetables.`,
+        type: "dinner",
+        date: date,
+        dietaryPreferences: ["Low salt", "Low sugar"],
+        allergens: ["Soy", "Gluten", "Egg"]
+      };
+      mockSelectedMeals.push({ date, lunch, dinner });
+    }
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      store.setSelectedMeals(mockSelectedMeals);
+      console.log('store meals', store.$state.selectedMeals);
+    } catch (error) {
+      throw new Error(`retrieveSelectedMeals failed: ${error}`);
+    }
+  }
 }
 
-// Mock meal data
-const mockMeals: Meal[] = [
-  {
-    id: 'm1',
-    name: 'Steamed Fish with Vegetables',
-    description: 'Fresh steamed fish with seasonal vegetables and brown rice',
-    imageUrl:
-      'https://www.weightloss.com.au/assets/Uploads/Recipes/steamed-chinese-fish-saute-vegetables-lge.jpg',
-    mealType: 'lunch',
-    dietaryInfo: {
-      calories: 450,
-      isVegetarian: false,
-      isHalal: true,
-      isGlutenFree: true,
-      isLowSodium: true,
-    },
-    date: '',
-    available: true,
-  },
-  {
-    id: 'm2',
-    name: 'Chicken Rice',
-    description: 'Traditional Singaporean chicken rice with cucumber',
-    imageUrl: 'https://rasamalaysia.com/wp-content/uploads/2024/11/chicken-rice-thumb-500x500.jpg',
-    mealType: 'lunch',
-    dietaryInfo: {
-      calories: 550,
-      isVegetarian: false,
-      isHalal: true,
-      isGlutenFree: false,
-      isLowSodium: false,
-    },
-    date: '',
-    available: true,
-  },
-  {
-    id: 'm3',
-    name: 'Vegetable Curry with Rice',
-    description: 'Mixed vegetable curry served with white rice',
-    imageUrl:
-      'https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2021-09-sonoko-sakai-curry-with-rice%2F2021-09-09_ATK10573',
-    mealType: 'dinner',
-    dietaryInfo: {
-      calories: 480,
-      isVegetarian: true,
-      isHalal: true,
-      isGlutenFree: true,
-      isLowSodium: false,
-    },
-    date: '',
-    available: true,
-  },
-  {
-    id: 'm4',
-    name: 'Pork Noodle Soup',
-    description: 'Noodles in a savory pork broth with greens',
-    imageUrl: 'https://img.taste.com.au/B54lI3Ss/taste/2019/04/quickporknoodlesoup-148548-1.jpg',
-    mealType: 'dinner',
-    dietaryInfo: {
-      calories: 520,
-      isVegetarian: false,
-      isHalal: false,
-      isGlutenFree: false,
-      isLowSodium: false,
-    },
-    date: '',
-    available: true,
-  },
-]
-
-export async function fetchWeeklyMenu(): Promise<WeeklyMenu> {
-  // Simulate API call
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const dates = generateWeekDates()
-      const menus = dates.map((date) => {
-        // Generate lunch and dinner options for each day
-        return {
-          date,
-          lunch: mockMeals
-            .filter((meal) => meal.mealType === 'lunch')
-            .map((meal) => ({ ...meal, date })),
-          dinner: mockMeals
-            .filter((meal) => meal.mealType === 'dinner')
-            .map((meal) => ({ ...meal, date })),
-        }
-      })
-
-      resolve({
-        weekStartDate: dates[0],
-        weekEndDate: dates[6],
-        menus,
-      })
-    }, 1000)
-  })
-}
-
-export async function orderMeal(selections: Record<string, string>): Promise<void> {
-  // Simulate API call
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log('Orders submitted:', selections)
-      resolve()
-    }, 800)
-  })
-}
+export default MealService;

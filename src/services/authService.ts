@@ -1,56 +1,50 @@
-import type { User } from '@/models/user'
+import { useAuthStore } from '@/stores/authStore';
+import { useMealStore } from '@/stores/mealStore';
+import { useDeliveryStore } from '@/stores/deliveryStore';
 
-// This is a mock service - replace with actual API calls
-export async function login(email: string, password: string): Promise<User> {
-  // Simulate API call
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email && password) {
-        const user: User = {
-          id: '1',
-          name: 'Patient Name',
-          email: email,
-          wardNumber: 'W12',
-          bedNumber: 'B04',
-          dietaryRestrictions: ['low-sodium'],
-        }
-        localStorage.setItem('user', JSON.stringify(user))
-        resolve(user)
-      } else {
-        reject(new Error('Invalid credentials'))
+const authStore = useAuthStore();
+const mealStore = useMealStore();
+const deliveryStore = useDeliveryStore();
+
+class AuthService {
+  private apiUrl: string;
+
+  constructor(apiUrl: string) {
+    this.apiUrl = apiUrl;
+  }
+
+  static async login() {
+    const mockUser = {
+      id: "S1234567A",
+      name: "ANDY TAN WEE MING",
+      phone: "91234567",
+      address: "Blk 123 Bukit Batok Central #13-142",
+      isNewUser: true,
+      dietaryRestrictions: [
+        "Low salt",
+        "Low sugar",
+        "Blended food"
+      ],
+      subscription: null,
+      medicalInfo: {
+        department: "MEDICAL ONCOLOGY",
+        doctor: "DR. LIM LAUREN UY"
       }
-    }, 800)
-  })
+    }
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      authStore.setUser(mockUser)
+    } catch (error) {
+      throw new Error(`Login failed: ${error}`);
+    }
+  }
+
+  static async logout() {
+    authStore.clearAuth();
+    mealStore.clearAll();
+    deliveryStore.clearAll();
+    console.log('Logged out, stores cleared');
+  }
 }
 
-export async function register(userData: Partial<User>, password: string): Promise<User> {
-  // Simulate API call
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (userData.name && userData.email && password) {
-        const user: User = {
-          id: Math.random().toString(36).substr(2, 9),
-          name: userData.name!,
-          email: userData.email!,
-          wardNumber: userData.wardNumber,
-          bedNumber: userData.bedNumber,
-          dietaryRestrictions: userData.dietaryRestrictions || [],
-        }
-        localStorage.setItem('user', JSON.stringify(user))
-        resolve(user)
-      } else {
-        reject(new Error('Invalid registration data'))
-      }
-    }, 800)
-  })
-}
-
-export async function logout(): Promise<void> {
-  // Simulate API call
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      localStorage.removeItem('user')
-      resolve()
-    }, 300)
-  })
-}
+export default AuthService;

@@ -2,18 +2,18 @@
   <ion-content>
     <BackButton />
 
-    <ion-grid class="mt-9 mx-6">
+    <ion-grid class="mt-9 mx-6 mb-4">
       <div class="text-lg font-semibold mb-4">
         We found your medical records at National University Hospital.
       </div>
       <ion-card class="bg-white rounded-lg">
         <ion-card-content>
           <PatientDetails
-            name="Andy Tan Wee Ming"
-            nric="S1234567A"
-            phone="9123 4567"
-            department="Medical Oncology"
-            doctor="Dr. Lim Lauren Uy"
+            :name="store.$state.user?.name"
+            :nric="store.$state.user?.id"
+            :phone="store.$state.user?.phone"
+            :department="store.$state.user?.medicalInfo?.department"
+            :doctor="store.$state.user?.medicalInfo?.doctor"
           />
         </ion-card-content>
       </ion-card>
@@ -31,8 +31,10 @@ import { IonCard, IonButton, IonContent, IonGrid, IonCardContent } from '@ionic/
 import { useRouter } from 'vue-router'
 import BackButton from '@/components/common/BackButton.vue'
 import PatientDetails from '@/components/onboarding/PatientDetails.vue'
+import { useAuthStore } from '@/stores/authStore'
 
 const router = useRouter()
+const store = useAuthStore()
 
 const handleContinue = () => {
   router.push('/onboarding/recommendations')

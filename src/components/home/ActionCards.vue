@@ -14,7 +14,7 @@ const cards: ActionCardType[] = [
     icon: restaurantOutline,
     title: 'Upcoming Meals',
     color: 'secondary',
-    route: '/meals',
+    route: '/upcoming-meals',
   },
   {
     icon: bulbOutline,
