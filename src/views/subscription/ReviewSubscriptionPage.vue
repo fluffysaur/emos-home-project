@@ -30,7 +30,7 @@
           </div>
 
           <!-- Subscribe Button -->
-          <ion-button expand="block" @click="handlePayment">
+          <ion-button expand="block" class="mt-4" @click="handlePayment">
             <span class="my-2">Proceed to payment</span>
           </ion-button>
         </ion-grid>
