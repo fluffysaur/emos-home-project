@@ -19,7 +19,7 @@
             <!-- Subscription Preferences -->
             <!-- Meal Plan Type Component -->
             <div class="mt-6">
-              <div class="text-lg">Meal plan type</div>
+              <div class="text-lg font-semibold">Meal plan type</div>
               <div class="flex flex-col mt-2 gap-4">
                 <subscription-option
                   v-for="option in mealPlanOptions"
@@ -34,7 +34,7 @@
 
             <!-- Duration and Pricing Component -->
             <div class="mt-6">
-              <div class="text-lg">Duration and pricing</div>
+              <div class="text-lg font-semibold">Duration and pricing</div>
               <div class="font-light">Choose to subscribe for meals for a month or for a week.</div>
               <div class="flex flex-col mt-4 gap-4">
                 <subscription-option
@@ -80,7 +80,7 @@
 
             <!-- Payment method component -->
             <div class="mt-6">
-              <div class="text-lg">Payment method</div>
+              <div class="text-lg font-semibold">Payment method</div>
               <div class="flex flex-col mt-4 gap-4">
                 <subscription-option
                   v-for="option in paymentOptions"
@@ -96,7 +96,7 @@
             <!-- Divider -->
 
             <!-- Delivery address input -->
-            <div class="mt-4 text-lg">Delivery address</div>
+            <div class="mt-4 text-lg font-semibold">Delivery address</div>
             <div class="border-1 border-gray-400 rounded-lg mt-2 px-2">
               <ion-textarea
                 label-placement="stacked"

@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex flex-col justify-center items-center px-10 py-4 w-full text-base text-center bg-white rounded-t-3xl shadow-lg"
+    class="flex flex-col justify-center items-center px-10 py-4 w-full text-base text-center rounded-t-3xl nav-shadow"
   >
     <div class="flex gap-10 items-center">
       <button
@@ -52,3 +52,11 @@ function handleClick(item: NavItem) {
   if (route.path !== item.path) router.push(item.path)
 }
 </script>
+
+<style scoped>
+.nav-shadow {
+  box-shadow:
+    0 -5px 8px -2px rgba(0, 0, 0, 0.1),
+    0 -2px 3px -1px rgba(0, 0, 0, 0.05);
+}
+</style>
