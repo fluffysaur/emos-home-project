@@ -47,7 +47,6 @@ import DetailItem from '@/components/onboarding/DetailItem.vue'
 import MealProviderOption from '@/components/subscription/MealProviderOption.vue'
 import { useSubscriptionStore } from '@/stores/subscriptionStore'
 import { useRouter } from 'vue-router'
-import SubscriptionInfoCard from '@/components/subscription/SubscriptionInfoCard.vue'
 
 const router = useRouter()
 const subscriptionStore = useSubscriptionStore()
