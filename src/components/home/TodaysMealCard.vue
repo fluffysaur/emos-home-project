@@ -2,7 +2,7 @@
   <ion-card class="p-4 w-full rounded-3xl shadow-sm">
     <div class="flex items-center">
       <ion-icon :icon="restaurantOutline" alt="Meal icon" class="text-2xl mr-2" color="primary" />
-      <div class="text-xl font-bold">Today's Meals</div>
+      <ion-text class="text-xl font-bold" color="primary">Today's Meals</ion-text>
     </div>
 
     <!-- If loading -->
@@ -17,17 +17,17 @@
       <div class="flex flex-col gap-4">
         <div v-if="mealStore.todaysMeals?.lunch" class="flex gap-4 items-center">
           <img :src="mealStore.todaysMeals.lunch.img" class="w-16 h-16 object-cover rounded-lg" />
-          <div>
+          <ion-text color="dark">
             <div class="text-lg">Lunch</div>
             <div class="text-xl font-semibold">{{ mealStore.todaysMeals.lunch.name }}</div>
-          </div>
+          </ion-text>
         </div>
         <div v-if="mealStore.todaysMeals?.dinner" class="flex gap-4 items-center">
           <img :src="mealStore.todaysMeals.dinner.img" class="w-16 h-16 object-cover rounded-lg" />
-          <div>
+          <ion-text color="dark">
             <div class="text-lg">Dinner</div>
             <div class="text-xl font-semibold">{{ mealStore.todaysMeals.dinner.name }}</div>
-          </div>
+          </ion-text>
         </div>
       </div>
 
@@ -55,7 +55,7 @@
 import { useAuthStore } from '@/stores/authStore'
 import { useMealStore } from '@/stores/mealStore'
 import { useDeliveryStore } from '@/stores/deliveryStore'
-import { IonCard, IonIcon, IonSkeletonText } from '@ionic/vue'
+import { IonCard, IonIcon, IonSkeletonText, IonText } from '@ionic/vue'
 import { restaurantOutline } from 'ionicons/icons'
 import { format } from 'date-fns'
 
