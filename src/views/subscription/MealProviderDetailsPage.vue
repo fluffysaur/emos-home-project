@@ -10,7 +10,7 @@
               :id="provider.id"
               :name="provider.name"
               :logo="provider.logo"
-              :price="provider.price"
+              :price="provider.prices.meal"
             />
 
             <!-- Menu Highlights -->
@@ -50,15 +50,20 @@ import { IonPage, IonContent, IonGrid, IonButton } from '@ionic/vue'
 import BackButton from '@/components/common/BackButton.vue'
 import { useMealStore } from '@/stores/mealStore'
 import MealProviderOption from '@/components/subscription/MealProviderOption.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const mealStore = useMealStore()
 const route = useRoute()
+const router = useRouter()
 
 const providerId = route.query.providerId as string
 const provider = ref(mealStore.getSelectedProviderDetails(providerId))
 
 function handleSubscribe() {
-  console.log(`Subscribed to ${provider.value?.name}`)
+  console.log(`Subscribing to ${provider.value?.name}`)
+  router.push({
+    path: '/subscription/subscribe-provider-details',
+    query: { providerId },
+  })
 }
 </script>

@@ -1,6 +1,7 @@
 import { useAuthStore } from '@/stores/authStore'
 import { useMealStore } from '@/stores/mealStore'
 import { useDeliveryStore } from '@/stores/deliveryStore'
+import mockUser from '@/mocks/user'
 
 const authStore = useAuthStore()
 const mealStore = useMealStore()
@@ -14,19 +15,6 @@ class AuthService {
   }
 
   static async login() {
-    const mockUser = {
-      id: 'S1234567A',
-      name: 'ANDY TAN WEE MING',
-      phone: '91234567',
-      address: 'Blk 123 Bukit Batok Central #13-142',
-      isNewUser: true,
-      dietaryRestrictions: ['Low salt', 'Low sugar', 'Blended food'],
-      subscription: null,
-      medicalInfo: {
-        department: 'MEDICAL ONCOLOGY',
-        doctor: 'DR. LIM LAUREN UY',
-      },
-    }
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000))
       authStore.setUser(mockUser)

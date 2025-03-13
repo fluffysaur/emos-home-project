@@ -25,7 +25,8 @@
             :id="provider.id"
             :name="provider.name"
             :logo="provider.logo"
-            :price="provider.price"
+            :price="provider.prices.meal"
+            tappable
           />
         </div>
       </section>

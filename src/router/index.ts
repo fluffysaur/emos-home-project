@@ -69,6 +69,21 @@ const routes = [
       query: { providerId: route.query.providerId },
     }),
   },
+  {
+    path: '/subscription/subscribe-provider-details',
+    name: 'SubscribeProviderDetails',
+    component: () => import('@/views/subscription/SubscribeProviderDetailsPage.vue'),
+    meta: { requiresAuth: true },
+    props: (route: { query: { providerId: string } }) => ({
+      query: { providerId: route.query.providerId },
+    }),
+  },
+  {
+    path: '/subscription/review',
+    name: 'ReviewSubscription',
+    component: () => import('@/views/subscription/ReviewSubscriptionPage.vue'),
+    meta: { requiresAuth: true },
+  },
 ]
 
 const router = createRouter({

@@ -1,17 +1,8 @@
-export type DietaryRestrictions = string[];
-export interface Subscription {
-  id: string
-  vendor: string
-  startDate: Date
-  endDate: Date
-  totalPrice: number
-  dietaryRestrictions: DietaryRestrictions
-  paymentStatus: string
-  deliveryAddress: string
-}
+import type { Subscription } from './subscription'
 
+export type DietaryRestrictions = string[]
 export interface MedicalInfo {
-  department: string,
+  department: string
   doctor: string
 }
 

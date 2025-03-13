@@ -9,10 +9,16 @@ export interface Meal {
   allergens: string[] | null
 }
 
+export interface Prices {
+  meal: number
+  weekly: number
+  monthly: number
+}
+
 export interface Provider {
   id: string
   name: string
-  price: number
+  prices: Prices
   mealOptions: Meal[]
   logo: string
 }

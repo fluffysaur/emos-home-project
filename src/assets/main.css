@@ -36,16 +36,24 @@
 * {
   letter-spacing: 0.05em;
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
-*::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
+*::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 /* Accessibility styles for elderly users */
 body {
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    'Open Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   color: #333333;
   height: 100%;
   overflow: auto;
@@ -111,7 +119,7 @@ ion-button {
 ion-app,
 ion-content {
   min-height: 100vh; /* Ensure the app takes up at least the full viewport height */
-  --ion-background-color: #F9F4FB;
+  /* --ion-background-color: #F9F4FB; */
   max-width: 420px;
   margin: 0 auto; /* Center content */
   overflow-x: hidden;

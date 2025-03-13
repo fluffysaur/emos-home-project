@@ -1,27 +1,23 @@
-import { useDeliveryStore } from '@/stores/deliveryStore';
+import { useDeliveryStore } from '@/stores/deliveryStore'
+import mockDeliveryInfo from '@/mocks/deliveryInfo'
 
-const deliveryStore = useDeliveryStore();
+const deliveryStore = useDeliveryStore()
 
 class DeliveryService {
-  private apiUrl: string;
+  private apiUrl: string
 
   constructor(apiUrl: string) {
-    this.apiUrl = apiUrl;
+    this.apiUrl = apiUrl
   }
 
   static async retrieveDeliveryInfo() {
-    const mockDeliveryInfo = {
-      deliveryTime: new Date(Date.now() + 20 * 60 * 1000),
-      address: "Blk 123 Bukit Batok Central #13-142",
-      status: "in progress"
-    }
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000))
       deliveryStore.setDelivery(mockDeliveryInfo)
     } catch (error) {
-      throw new Error(`retrieveDeliveryInfo failed: ${error}`);
+      throw new Error(`retrieveDeliveryInfo failed: ${error}`)
     }
   }
 }
 
-export default DeliveryService;
+export default DeliveryService

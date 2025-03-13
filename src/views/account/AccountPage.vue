@@ -35,8 +35,8 @@
             <!-- No subscription -->
             <ion-card-content v-else>
               <div class="mb-4">You have no meal plan subscription at the moment.</div>
-              <ion-button expand="block" class="text-lg">
-                <span class="my-2" @click="routeToSubscription">Subscribe to a meal plan</span>
+              <ion-button expand="block" class="text-lg" @click="routeToSubscription">
+                <span class="my-2">Subscribe to a meal plan</span>
               </ion-button>
             </ion-card-content>
           </ion-card>
