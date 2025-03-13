@@ -39,16 +39,18 @@ import { onMounted } from 'vue'
 import { IonPage, IonContent, IonSkeletonText } from '@ionic/vue'
 import BackButton from '@/components/common/BackButton.vue'
 import { useMealStore } from '@/stores/mealStore'
+import { useSubscriptionStore } from '@/stores/subscriptionStore'
 import MealService from '@/services/mealService'
 import MealProviderOption from '@/components/subscription/MealProviderOption.vue'
 
 const mealStore = useMealStore()
+const subscriptionStore = useSubscriptionStore()
 
 onMounted(async () => {
   if (!mealStore.$state.providers?.length) {
-    mealStore.setIsLoading(true)
+    subscriptionStore.setIsLoading(true)
     await MealService.retrieveProviders()
-    mealStore.setIsLoading(false)
+    subscriptionStore.setIsLoading(false)
   }
 })
 </script>

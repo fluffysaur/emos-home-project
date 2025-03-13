@@ -33,4 +33,5 @@ export interface Subscription {
 
 export interface SubscriptionState {
   selectedSubscription: Subscription | null
+  isLoading: boolean
 }
