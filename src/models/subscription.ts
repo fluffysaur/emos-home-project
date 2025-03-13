@@ -1,19 +1,19 @@
 import type { Provider } from './meal'
 
 export interface MealPlanType {
-  id: 'lunchAndDinner' | 'lunchOnly' | 'dinnerOnly'
+  id: string
   label: string
   selected?: boolean
 }
 
 export interface PaymentType {
-  id: 'payNow' | 'creditCard' | 'cheque'
+  id: string
   label: string
   selected?: boolean
 }
 
 export interface DurationType {
-  id: 'weekly' | 'monthly'
+  id: string
   label: string
   selected?: boolean
 }

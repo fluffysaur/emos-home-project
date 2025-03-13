@@ -258,8 +258,7 @@ function handleSelectStartDate() {
 
 function handleSubscribe() {
   console.log(`Subscribed to ${provider.value?.name}`, selectedDetails.value)
-
-  // subscriptionStore.setSelectedSubscription(selectedDetails.value)
-  // router.push('/subscription/review')
+  subscriptionStore.setSelectedSubscription(selectedDetails.value)
+  router.push('/subscription/review')
 }
 </script>
