@@ -9,7 +9,7 @@
         </div>
 
         <!-- Meal Provider Options -->
-        <div v-if="mealStore.$state.isLoading">
+        <div v-if="subscriptionStore.$state.isLoading">
           <ion-skeleton-text
             v-for="i in 2"
             :key="i"
