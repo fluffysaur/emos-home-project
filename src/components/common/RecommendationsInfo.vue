@@ -11,7 +11,7 @@
                 <ion-text color="dark">
                   <FoodList
                     title="Dietary Restrictions"
-                    :items="authStore.$state.user?.dietaryRestrictions || []"
+                    :items="authStore.$state.user?.dietaryInfo?.restrictions || []"
                     :iconUrl="'https://cdn.builder.io/api/v1/image/assets/TEMP/dff5e70fe870e55133e0f5c543fa56963fa6f0edf7e923acb44eff602994bdfb?placeholderIfAbsent=true&apiKey=abeb1f4ba85b45269a6aeb4e1c98d24d'"
                   />
                 </ion-text>
@@ -23,7 +23,7 @@
                 <ion-text color="dark">
                   <FoodList
                     title="Foods you should eat more"
-                    :items="recommendedFoods"
+                    :items="authStore.$state.user?.dietaryInfo?.recommendedFoods || []"
                     :iconUrl="'https://cdn.builder.io/api/v1/image/assets/TEMP/dff5e70fe870e55133e0f5c543fa56963fa6f0edf7e923acb44eff602994bdfb?placeholderIfAbsent=true&apiKey=abeb1f4ba85b45269a6aeb4e1c98d24d'"
                   />
                 </ion-text>
@@ -35,7 +35,7 @@
                 <ion-text color="dark">
                   <FoodList
                     title="Foods you should avoid"
-                    :items="foodsToAvoid"
+                    :items="authStore.$state.user?.dietaryInfo?.foodsToAvoid || []"
                     :iconUrl="'https://cdn.builder.io/api/v1/image/assets/TEMP/dff5e70fe870e55133e0f5c543fa56963fa6f0edf7e923acb44eff602994bdfb?placeholderIfAbsent=true&apiKey=abeb1f4ba85b45269a6aeb4e1c98d24d'"
                   />
                 </ion-text>

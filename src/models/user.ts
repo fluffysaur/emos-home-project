@@ -6,12 +6,18 @@ export interface MedicalInfo {
   doctor: string
 }
 
+export interface DietaryInfo {
+  restrictions: DietaryRestrictions
+  recommendedFoods: string[]
+  foodsToAvoid: string[]
+}
+
 export interface User {
   id: string
   name: string
   phone: string
   address: string
-  dietaryRestrictions: DietaryRestrictions
+  dietaryInfo: DietaryInfo
   medicalInfo: MedicalInfo
   subscription: Subscription | null
   isNewUser: boolean

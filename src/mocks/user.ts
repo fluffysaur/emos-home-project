@@ -6,7 +6,17 @@ export default {
   phone: '91234567',
   address: 'Blk 123 Bukit Batok Central #13-142',
   isNewUser: true,
-  dietaryRestrictions: ['Low salt', 'Low sugar', 'Blended food'],
+  dietaryInfo: {
+    restrictions: ['Low salt', 'Low sugar', 'Blended food'],
+    recommendedFoods: [
+      'Fruits and vegetables',
+      'Whole grains',
+      'Lean protein',
+      'Low-fat dairy',
+      'Calcium-rich foods',
+    ],
+    foodsToAvoid: ['Saturated and trans fats', 'Foods high in salt and sugar', 'Alcohol'],
+  },
   subscription: null,
   medicalInfo: {
     department: 'MEDICAL ONCOLOGY',
