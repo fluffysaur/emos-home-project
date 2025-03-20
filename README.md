@@ -1,18 +1,32 @@
-# nutricare-healthhack-2025
+## NutriCare - HealthHack 2025
 
-This template should help get you started developing with Vue 3 in Vite.
+NutriCare is a prototype developed for HealthHack 2025. It aims to address malnutrition in outpatients, particularly the elderly, by offering a variety of catering options tailored to different dietary needs. NutriCare connects users with hospitals and other food providers to deliver meals that meet specific nutritional requirements.
 
-## Recommended IDE Setup
+### Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Personalized Meal Plans**: Customizable meal plans based on individual dietary needs.
+- **Variety of Providers**: Access to multiple food providers, including hospitals and specialized caterers.
+- **Convenient Delivery**: Meals delivered directly to the user's home.
+- **Nutritional Tracking**: Monitor and track nutritional intake to ensure balanced diets.
 
-## Type Support for `.vue` Imports in TS
+### How to Use
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+1. **Sign Up**: Create an account and provide your dietary preferences and restrictions.
+2. **Choose a Meal Plan**: Subscribe to a meal plan from a provider of your choice, either weekly or monthly. (Partially implemented, except payment)
+3. **Order Meals**: Place orders from a variety of food providers. (Not implemented as of submission)
+4. **Track Nutrition**: Use the app to track your nutritional intake and adjust your plan as needed. (Not implemented as of submission)
 
-## Customize configuration
+### Technologies Used
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Frontend**: Vue.js, Capacitor
+- **Possible Backend**: Java / Node.js / Express
+- **Possible Database**: Firebase / MongoDB
+- **Testing**: Vitest
+- **Linting**: ESLint
+
+### Getting Started
+
+Follow the instructions in the Project Setup section to install dependencies, compile the project, and run tests.
 
 ## Project Setup
 
@@ -26,11 +40,41 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Compile and Minify for Production
 
 ```sh
-npm run build
+npm run build-only
 ```
+
+### Run on iOS (after build)
+
+```sh
+npx cap sync ios
+npx cap run ios
+```
+
+Alternatively, open the project in Xcode after cap sync with:
+
+```sh
+npx cap open ios
+```
+
+and run it on a simulator or a connected device.
+
+### Run on Android (after build)
+
+```sh
+npx cap sync android
+npx cap run android
+```
+
+Alternatively, open the project in Android Studio after cap sync with:
+
+```sh
+npx cap open android
+```
+
+and run it on a simulator or a connected device.
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 

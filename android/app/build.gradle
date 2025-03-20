@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.tanyijia.emoshome"
+    namespace "com.tanyijia.nutricare"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.tanyijia.emoshome"
+        applicationId "com.tanyijia.nutricare"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

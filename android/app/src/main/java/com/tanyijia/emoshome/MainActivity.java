@@ -1,4 +1,4 @@
-package com.tanyijia.emoshome;
+package com.tanyijia.nutricare;
 
 import android.os.Bundle;
 import com.getcapacitor.BridgeActivity;
